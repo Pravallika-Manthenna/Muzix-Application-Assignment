@@ -1,34 +1,12 @@
 package com.stackroute.MuzixAppMysql.service;
-//
-//
-//
-//import java.util.List;
-//
-//public interface TrackService {
-//
-//
-//    public User saveUser(User user);
-//
-//    public List<User> getAllUsers();
-//
-//    public User updateUser(User user, int id) throws Exception;
-//
-//    public boolean deleteuser(int id) throws Exception;
-//
-//    public List<User> searchUser(String searchString);
-//
-//    public List<User> getUserByName(String name);
-//
-//}
-
-
 
 import com.stackroute.MuzixAppMysql.domain.Track;
 import com.stackroute.MuzixAppMysql.exceptions.TrackAlreadyExistsException;
 import com.stackroute.MuzixAppMysql.exceptions.TrackNotFoundException;
-
 import java.util.List;
 
+//track service interface 
+//method declarations are done in this
 public interface TrackService {
 
     public Track saveTrack(Track track) throws TrackAlreadyExistsException;
