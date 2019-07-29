@@ -10,12 +10,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-
 import java.util.ArrayList;
 import java.util.List;
 
+//rest controller annotation is used which contains all the restfull operations 
 @RestController
-//@RequestMapping(value = "api/v1")
 @ControllerAdvice(basePackages = "com.stackroute.muzixapp")
 public class TrackController {
 
@@ -26,6 +25,7 @@ public class TrackController {
         this.trackService = trackService;
     }
 
+    //logic for save method using post method
         @PostMapping("track")
     public ResponseEntity<?> saveTrack(@RequestBody Track track) {
         ResponseEntity responseEntity;
@@ -38,6 +38,7 @@ public class TrackController {
         return responseEntity;
     }
 
+    //logic for save all tracks method using post method
     @PostMapping("alltracks")
     public ResponseEntity<?> saveAllTrack(@RequestBody List<Track> trackList) throws TrackAlreadyExistsException
     {
@@ -49,12 +50,14 @@ public class TrackController {
         return new ResponseEntity<List<Track>>(savedTrackList, HttpStatus.CREATED);
     }
 
+    //logic for get track by name method using get method
     @GetMapping("trackByName")
     public ResponseEntity<?> getTrackByName(@RequestParam String name) throws TrackNotFoundException
     {
         return new ResponseEntity<List<Track>>(trackService.getTracksByName(name), HttpStatus.OK);
     }
 
+    //logic for get all tracks method using get method
     @GetMapping("track")
     public ResponseEntity<?> getAllTracks() {
         ResponseEntity responseEntity;
@@ -70,6 +73,7 @@ public class TrackController {
         return responseEntity;
     }
 
+    //logic for update track method using put method
      @PutMapping("track/{id}")
     public ResponseEntity<?> updateTrack(@RequestBody Track track, @PathVariable int id) {
          ResponseEntity responseEntity;
@@ -82,6 +86,7 @@ public class TrackController {
          return responseEntity;
      }
 
+    //logic for delete track method using delete
       @DeleteMapping("track/{id}")
     public ResponseEntity<?> deleteTrack(@PathVariable int id) {
         ResponseEntity responseEntity;
@@ -94,6 +99,7 @@ public class TrackController {
         return responseEntity;
     }
 
+    //logic for search tracks method using get method
         @GetMapping("searchTracks")
     public ResponseEntity<?> searchTracks(@RequestParam("searchString") String searchString)
     {
@@ -107,6 +113,7 @@ public class TrackController {
         return responseEntity;
     }
 
+    //logic for get last fm tracks method using get method
     @GetMapping("getLastFmTracks")
     public ResponseEntity<?> getLastFmTracks(@RequestParam String url) throws Exception{
         RestTemplate restTemplate = new RestTemplate();
