@@ -9,6 +9,7 @@ Muzix Application Case Study
 listed on Music Database (https://www.last.fm).
 Using this app, a user should be able to search and
 manage music.
+
 3 Users of the system All Internet users
 
 4 Functional
